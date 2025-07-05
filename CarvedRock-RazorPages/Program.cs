@@ -1,7 +1,10 @@
+using DataLibrary.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

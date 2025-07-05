@@ -4,7 +4,42 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="row">
+    <h2 class="mb-3 ml-5">Today's specials:</h4>
 </div>
+<div class="row ">
+    <div class="ml-5 mt-3 text-end">
+        <a asp-page="Create" class="btn btn-primary">New product</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Stock</th>
+        </tr>
+    </thead>
+    <tbody> @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td> <img height="80" src="Images/@product.PhotoFileName" alt="Product image" /></td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Stock</td>
+
+            </tr>
+            @* <div class="row mb-4">
+        <div class="col-2 text-center">
+            <img height="80" src="Images/@product.PhotoFileName" alt="Product image" />
+        </div>
+        <div class="col-2 my-auto">@product.Name</div>
+        <div class="col-2 my-auto">@product.Price</div>
+        <div class="col-2 my-auto">@product.Stock</div>
+    </div> *@
+        }
+    </tbody>
+
+</table>
